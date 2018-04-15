@@ -3,7 +3,7 @@
     <router-link tag="div" class="tab-item" to="/paint">
       <span class="tab-link">画友</span>
     </router-link>
-    <router-link tag="div" class="tab-item" to="/phototgraph">
+    <router-link tag="div" class="tab-item" to="/photograph">
       <span class="tab-link">摄影</span>
     </router-link>
     <router-link tag="div" class="tab-item" to="/rank">

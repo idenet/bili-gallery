@@ -1,10 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import User from '@/views/user-center/user-center'
-import Paint from '@/views/paint/paint'
-import Photograph from '@/views/photograph/photograph'
-import Rank from '@/views/rank/rank'
+const Rank = () => import(/* webpackChunkName: 'rank' */ '@/views/rank/rank')
+const User = () =>
+  import(/* webpackChunkName: 'user' */ '@/views/user-center/user-center')
+const Paint = () =>
+  import(/* webpackChunkName: 'paint' */ '@/views/paint/paint')
+const Photograph = () =>
+  import(/* webpackChunkName: 'photograph' */ '@/views/photograph/photograph')
 
 Vue.use(Router)
 

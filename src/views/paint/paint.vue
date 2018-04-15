@@ -33,15 +33,15 @@ import ListView from '@/components/list-view/list-view'
 
 import { getSlider, getPaintPictures } from '@/api/paint'
 import { ERR_OK } from '@/api/config'
+
+import { checkMoreMixin } from '@/common/js/mixin'
 export default {
+  mixins: [checkMoreMixin],
   name: 'paint',
   data() {
     return {
       slider: [],
-      list: [],
-      hasMore: true,
-      pullup: true,
-      pageNum: 0
+      list: []
     }
   },
   computed: {
@@ -61,7 +61,7 @@ export default {
     _getPaintPictures() {
       getPaintPictures(this.pageNum).then(res => {
         if (res.code === ERR_OK) {
-          this.list = Array.from(res.data.items)
+          this.list = res.data.items
         }
         this._checkMore(res.data)
       })
@@ -71,15 +71,10 @@ export default {
       this.pageNum++
       getPaintPictures(this.pageNum).then(res => {
         if (res.code === ERR_OK) {
-          this.list = this.list.concat(Array.from(res.data.items))
+          this.list = this.list.concat(res.data.items)
         }
         this._checkMore(res.data)
       })
-    },
-    _checkMore(data) {
-      if (!data.items.length || (this.pageNum + 1) * data.items.length >= 500) {
-        this.hasMore = false
-      }
     }
   },
   components: {

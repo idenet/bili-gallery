@@ -17,8 +17,8 @@
           </div>
         </div>
       </li>
-      <loading title="" v-show="hasMore && data.length"></loading>
-      <div class="more-desc" v-show="!hasMore && data.length">已无更多</div>
+      <loading title="" v-show="showMore && hasMore && data.length"></loading>
+      <div class="more-desc" v-show="!showMore && !hasMore && data.length">已无更多</div>
     </ul>
   </div>
 </template>
@@ -38,7 +38,8 @@ export default {
     hasMore: {
       type: Boolean,
       default: true
-    }
+    },
+    showMore: true // 是否加载更多
   },
   components: {
     Loading

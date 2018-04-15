@@ -1,0 +1,44 @@
+@import '~@/common/stylus/variable.styl';
+
+.photograph
+  position: fixed;
+  width: 100%;
+  top: 79px;
+  bottom: 0;
+  .photo-content
+    height 100%
+    overflow hidden
+    .active-wrapper
+      .active-title
+        height 35px;
+        line-height: 35px;
+        text-align: center;
+        font-size: $font-size-medium
+        color: $color-theme
+      .active-content
+        width: 100%
+        display: flex
+        .item
+          flex: 1
+          &:first-child
+            margin-right: 10px
+          .pic
+            position relative
+            width: 100%
+            height 0
+            padding-top: 70%
+            background-size: cover
+            transform-origin: top
+            border-radius: 5px
+    .photo-list
+      .list-title
+        height 65px;
+        line-height: 65px;
+        text-align: center;
+        font-size: $font-size-medium
+        color: $color-theme
+    .loading-container
+      position: absolute
+      width: 100%
+      top: 50%
+      transform: translateY(-50%)
