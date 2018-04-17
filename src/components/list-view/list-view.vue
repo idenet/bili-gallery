@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="list-wrapper">
     <ul class="list-item">
-      <li class="item" v-for="item in data" :key="item.item.doc_id">
+      <li class="item" v-for="item in data" :key="item.item.doc_id" @click="selectItem(item)">
         <div class="pictures-container">
           <img alt="" v-lazy="item.item.pictures[0].img_src">
           <div class="img-desc">{{item.item.pictures.length}}P</div>
@@ -40,6 +40,11 @@ export default {
       default: true
     },
     showMore: true // 是否加载更多
+  },
+  methods: {
+    selectItem(item) {
+      this.$emit('select', item)
+    }
   },
   components: {
     Loading

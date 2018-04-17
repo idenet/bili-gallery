@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export function getPotoActive() {
-  const url = '/api/getPotoActive'
+  const url = '/api/getPhotoActive'
   const params = {
     type: 0,
     biz: 2,

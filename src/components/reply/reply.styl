@@ -1,0 +1,48 @@
+@import '~@/common/stylus/variable.styl'
+
+.reply
+  position: relative
+  padding: 0 5px
+  .header
+    display: flex
+    height 40px
+    align-items: center
+    .title
+      display: inline-block
+      font-size: $font-size-medium-x
+      color: $color-text-l
+    .count
+      display: inline-block
+      margin-left: 5px
+      font-size: $font-size-medium-x
+      color: $color-text-l
+  .reply-content
+    .content-item
+      position relative
+      display flex
+      padding: 20px 0
+      border-bottom: 1px solid $color-highlight-background
+      &:last-of-type
+        border-bottom: 0
+      .avatar
+        flex: 0 0 40px
+        width: 40px
+        margin-right: 10px
+        img
+          border-radius: 100%
+      .content
+        position relative
+        display: flex
+        align-items: center;
+        flex: 1
+        .text
+          line-height: 18px;
+          color: $color-text-ll
+          font-size: $font-size-medium
+        .time
+          position absolute
+          top: -14px
+          right: 2px
+          font-size: $font-size-small
+          color: $color-text-l
+

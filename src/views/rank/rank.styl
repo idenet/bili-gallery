@@ -6,9 +6,14 @@
   top: 79px;
   bottom: 0;
   .switch-wrapper
-    position relative
-    margin: 10px 0 20px 0
+    box-sizing: border-box
+    padding: 10px 0 20px 0
   .paint-rank-wrapper
-    position relative
-    height 532px
+    position: relative
+    height calc(100% - 56px)
     overflow hidden
+    .loading-container
+        position: absolute
+        width: 100%
+        top: 50%
+        transform: translateY(-50%)

@@ -1,0 +1,7 @@
+export const SET_PAINT = 'SET_PAINT'
+
+export const SET_PHOTO = 'SET_PHOTO'
+
+export const SET_LOOK_HISTORY = 'SET_LOOK_HISTORY'
+
+export const SET_FAVORITE_HISTORY = 'SET_FAVORITE_HISTORY'

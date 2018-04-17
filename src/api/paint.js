@@ -24,7 +24,7 @@ export function getSlider() {
 export function getPaintPictures(page_num = 0) {
   const url = '/api/getPaintPictures'
   const params = {
-    category: 'all',
+    category: 'illustration',
     type: 'hot',
     page_num: page_num,
     page_size: 20

@@ -1,0 +1,114 @@
+@import '~@/common/stylus/variable.styl';
+@import '~@/common/stylus/mixin.styl';
+  
+.detail-list
+  position: fixed
+  left: 0
+  right: 0
+  bottom: 0
+  top: 0
+  z-index 100
+  background: $color-background
+  .back
+    position: absolute
+    top: 0
+    left: 6px
+    z-index 50
+    .icon-back
+      display block
+      padding: 10px
+      font-size: $font-size-large-x
+      color: $color-theme
+  .detail-user
+    .title
+      position: absolute
+      top: 0
+      left: 10%
+      z-index: 40
+      width: 80%
+      no-wrap()
+      text-align: center
+      line-height: 40px
+      font-size: $font-size-large
+      color: $color-text
+    .user
+      position: absolute
+      top: 40px
+      left 6px
+      z-index: 40
+      padding: 10px
+      .user-icon
+        display: inline-block
+        vertical-align: middle
+        border-radius: 100%
+      .name
+        display: inline-block
+        vertical-align: middle
+        margin-left: 10px
+        font-size: $font-size-large
+        color: $color-text
+    .favorite
+      display: inline-block
+      position: absolute
+      right: 6px
+      top: 40px
+      font-size: 30px
+      z-index: 40
+      padding: 10px
+      line-height: 45px
+      color: $color-theme
+  .bg-image
+    position: relative
+    width: 100%
+    height 0
+    padding-top: 25%
+    transform-origin: top
+    background-size: cover
+    filter: blur(10px)
+  .detail-content
+    position: absolute
+    top: 105px
+    bottom: 0
+    overflow hidden
+    .image-content
+      margin: 0 10px 10px
+      .paint-desc
+        position relative
+        margin: 4px 9px 10px
+        .tags
+          position relative
+          .tags-item
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 0 20px 10px 0;
+            border-radius: 6px;
+            background: $color-highlight-background
+            font-size: $font-size-medium
+            color: $color-text-d
+        .view-count
+          text-align: right 
+          box-sizing: border-box
+          padding: 0 3px 10px 0
+          span
+            font-size:  $font-size-medium
+            color: $color-text-l 
+            &:first-of-type
+              margin-right: 5px
+        .desc
+          font-size: $font-size-medium
+          color: $color-text-d 
+          text-indent: 28px
+          line-height: 1.5
+      .image-item
+        width: 100%
+        margin-bottom: 5px
+  .empty
+    position: absolute
+    left 50%
+    top: 50%
+    width: 100%
+    height 0
+    padding-top: 70%
+    background-size: cover
+    transform-origin: top
+    transform: translate3d(-50%, -50%, 0)

@@ -9,6 +9,10 @@ const Paint = () =>
 const Photograph = () =>
   import(/* webpackChunkName: 'photograph' */ '@/views/photograph/photograph')
 
+const PaintDetail = () => import('@/components/paint-detail/paint-detail')
+const PhotoDetail = () => import('@/components/photo-detail/photo-detail')
+const RankDetail = () => import('@/components/rank-detail/rank-detail')
+
 Vue.use(Router)
 
 export default new Router({
@@ -23,15 +27,33 @@ export default new Router({
     },
     {
       path: '/paint',
-      component: Paint
+      component: Paint,
+      children: [
+        {
+          path: ':id',
+          component: PaintDetail
+        }
+      ]
     },
     {
       path: '/photograph',
-      component: Photograph
+      component: Photograph,
+      children: [
+        {
+          path: ':id',
+          component: PhotoDetail
+        }
+      ]
     },
     {
       path: '/rank',
-      component: Rank
+      component: Rank,
+      children: [
+        {
+          path: ':id',
+          component: RankDetail
+        }
+      ]
     }
   ]
 })

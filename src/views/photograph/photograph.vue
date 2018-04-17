@@ -14,11 +14,14 @@
         </div>
         <div class="photo-list">
           <h1 class="list-title">热门COS</h1>
-          <list-view :data="cosList" :hasMore="hasMore"></list-view>
+          <list-view @select="selectItem" :data="cosList" :hasMore="hasMore"></list-view>
         </div>
       </div>
-      <loading class="loading-container" title="正在加载中..." v-show="!cosList.length"></loading>
+      <div class="loading-container" v-show="!cosList.length">
+        <loading title="正在加载中..."></loading>
+      </div>
     </scroll>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -31,6 +34,8 @@ import { getPotoActive, getCosList } from '@/api/photograph'
 import { ERR_OK } from '@/api/config'
 
 import { checkMoreMixin } from '@/common/js/mixin'
+
+import { mapMutations, mapActions } from 'vuex'
 
 export default {
   mixins: [checkMoreMixin],
@@ -46,6 +51,13 @@ export default {
     this._getCosList()
   },
   methods: {
+    selectItem(item) {
+      this.$router.push({
+        path: `/photograph/${item.item.doc_id}`
+      })
+      this.setPhoto(item) // 将浏览的提交到store
+      this.saveLookHistory(item)
+    },
     bgImage(item) {
       return {
         backgroundImage: `url(${item.cover})`
@@ -60,7 +72,7 @@ export default {
       })
     },
     _formatPhotoActive(data) {
-      return data.filter((item) => {
+      return data.filter(item => {
         return item.desc_type !== 1
       })
     },
@@ -81,7 +93,11 @@ export default {
         }
         this._checkMore(res.data)
       })
-    }
+    },
+    ...mapMutations({
+      setPhoto: 'SET_PHOTO'
+    }),
+    ...mapActions(['saveLookHistory'])
   },
   components: {
     Scroll,
