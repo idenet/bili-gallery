@@ -12,6 +12,7 @@ const Photograph = () =>
 const PaintDetail = () => import('@/components/paint-detail/paint-detail')
 const PhotoDetail = () => import('@/components/photo-detail/photo-detail')
 const RankDetail = () => import('@/components/rank-detail/rank-detail')
+const UserDetail = () => import('@/components/user-detail/user-detail')
 
 Vue.use(Router)
 
@@ -23,7 +24,13 @@ export default new Router({
     },
     {
       path: '/user',
-      component: User
+      component: User,
+      children: [
+        {
+          path: ':id',
+          component: UserDetail
+        }
+      ]
     },
     {
       path: '/paint',

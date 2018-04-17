@@ -30,13 +30,16 @@
         <reply v-if="item.doc_id" :id="getId"></reply>
       </div>
     </scroll>
-    <div class="empty" :style="emptyStyle" v-if="!item && !user"></div>
+    <div class="loading-container" v-show="!item.pictures">
+      <loading></loading>
+    </div>
   </div>
 </template>
 
 <script>
 import Scroll from '@/base/scroll/scroll'
 import Reply from '@/components/reply/reply'
+import Loading from '@/base/loading/loading'
 
 import { mapActions, mapGetters } from 'vuex'
 export default {
@@ -64,9 +67,6 @@ export default {
         this.item.pictures &&
         `background-image:url(${this.item.pictures[0].img_src})`
       )
-    },
-    emptyStyle() {
-      return `background-image:url(${require('../../common/image/empty.jpg')})`
     },
     ...mapGetters(['favoriteHistory'])
   },
@@ -100,7 +100,8 @@ export default {
   },
   components: {
     Scroll,
-    Reply
+    Reply,
+    Loading
   }
 }
 </script>

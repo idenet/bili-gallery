@@ -4,13 +4,13 @@
       <switches :switches="switches" :currentIndex="currentIndex" @switch="switchItem"></switches>
     </div>
     <scroll class="paint-rank-wrapper" :data="paintRankList" v-show="currentIndex === 0">
-      <list-view @select="selectPaint" :data="paintRankList" :showMore="showMore"></list-view>
+      <list-view @select="selectPaint" :data="paintRankList" :hasMore="hasMore"></list-view>
      <div class="loading-container" v-show="!paintRankList.length">
         <loading title="正在加载..."></loading>
       </div>
     </scroll>
     <scroll class="paint-rank-wrapper" :data="cosRankList" v-show="currentIndex === 1">
-      <list-view @select="selectCos" :data="cosRankList" :showMore="showMore"></list-view>
+      <list-view @select="selectCos" :data="cosRankList" :hasMore="hasMore"></list-view>
       <div class="loading-container" v-show="!cosRankList.length">
         <loading title="正在加载..."></loading>
       </div>
