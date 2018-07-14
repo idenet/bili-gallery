@@ -1,4 +1,4 @@
-# bilibili Gallery
+# Gallery
 
 ```
 npm i  
